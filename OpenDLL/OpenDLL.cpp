@@ -27,6 +27,7 @@ void ImageChart(string ImageLink, bool show) {
     for (Ptr<mcc::CChecker> checker : checkers) {
         Ptr<CCheckerDraw> cdraw = CCheckerDraw::create(checker);
         cdraw->draw(ChartImage);
+        imwrite("ImageWithChart.jpg", ChartImage);
         if (show == 1) {
             Mat show_image;
             resize(ChartImage, show_image, Size(700, 700), INTER_LINEAR);
@@ -71,8 +72,8 @@ void CCM(string ImageLink, string SaveLink, bool show) {
 
         if (show == 1) {
             Mat show_image;
-            resize(out_image, show_image, Size(700, 700), INTER_LINEAR);
-            imshow("CCM", show_image);
+            resize(final_image, show_image, Size(700, 700), INTER_LINEAR);
+            imshow("CCM", final_image);
             waitKey(0);
         }
 
